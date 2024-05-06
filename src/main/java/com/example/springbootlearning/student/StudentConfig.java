@@ -14,7 +14,7 @@ import static java.time.Month.OCTOBER;
 public class StudentConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(StudentRepository studentRepository) {
+    public CommandLineRunner commandLineRunner(StudentRepository studentRepository) {
         return args -> {
             Student Roman = new Student(
                     "Roman",
