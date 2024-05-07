@@ -4,8 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.Period;
 
-@Data @AllArgsConstructor @NoArgsConstructor
+@Data @NoArgsConstructor
 @Entity
 @Table
 public class Student {
@@ -23,12 +24,23 @@ public class Student {
     private String name;
     private String email;
     private LocalDate dob;
+    @Transient
     private int age;
 
-    public Student(String name, String email, LocalDate dob, int age) {
+    public Student(long id, String name, String email, LocalDate dob) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.dob = dob;
-        this.age = age;
+    }
+
+    public Student(String name, String email, LocalDate dob) {
+        this.name = name;
+        this.email = email;
+        this.dob = dob;
+    }
+
+    public int getAge() {
+        return Period.between(this.dob, LocalDate.now()).getYears();
     }
 }
