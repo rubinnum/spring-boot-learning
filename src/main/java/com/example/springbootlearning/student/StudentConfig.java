@@ -17,13 +17,13 @@ public class StudentConfig {
     public CommandLineRunner commandLineRunner(StudentRepository studentRepository) {
         return args -> {
             Student Roman = new Student(
-                    "Roman",
-                    "romarypiak@gmail.com",
+                    "Roma",
+                    "roma@gmail.com",
                     LocalDate.of(2004, NOVEMBER, 16));
 
             Student Ihor = new Student(
-                    "Ihor",
-                    "ihor@gmail.com",
+                    "Veronika",
+                    "nika@gmail.com",
                     LocalDate.of(2005, OCTOBER, 10));
 
             studentRepository.saveAll(List.of(Roman, Ihor));
