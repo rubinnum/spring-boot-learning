@@ -16,3 +16,8 @@
 - **Connect to Database using Spring Boot.** To connect to a database, you can configure the database connection properties in the *application.properties* file and use Spring Data JPA repositories to interact with the database.
 - **Repository** is typically used as a component responsible for *data access operations*, such as querying, saving, updating, and deleting data from a database or any other data source.
 - **Configuration**  refers to the process of *defining and configuring beans, components, and other application settings* in a Spring application context.
+
+### Adding Post Request to my API
+- <code>@PostMapping</code>: Used to handle HTTP POST requests in the *Controller*. Annotated methods will be invoked for HTTP POST requests matching the specified URL pattern.
+- <code>@RequestBody</code>: An annotation used in the *Controller* to indicate that the method parameter should be bound to the body of the HTTP request. In this case, the Student object is retrieved from the request body and used as input for adding a new student to the database.
+- <code>@Query</code> and **JPQL**: In the *Repository*, the <code>@Query</code> annotation is used to define a *custom JPQL query* for finding a student by email. **JPQL (Java Persistence Query Language)** is an object-oriented query language used to *interact with JPA entities*. It allows for more flexible and complex queries than the default methods provided by Spring Data JPA, such as finding entities by specific properties.
