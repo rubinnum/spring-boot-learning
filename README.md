@@ -17,11 +17,15 @@
 - **Repository** is typically used as a component responsible for *data access operations*, such as querying, saving, updating, and deleting data from a database or any other data source.
 - **Configuration**  refers to the process of *defining and configuring beans, components, and other application settings* in a Spring application context.
 
-### Adding POST Request to my API
+### Adding POST Request
 - <code>@PostMapping</code>: Used to handle HTTP POST requests in the *Controller*. Annotated methods will be invoked for HTTP POST requests matching the specified URL pattern.
 - <code>@RequestBody</code>: An annotation used in the *Controller* to indicate that the method parameter should be bound to the body of the HTTP request. In this case, the Student object is retrieved from the request body and used as input for adding a new student to the database.
 - <code>@Query</code> and **JPQL**: In the *Repository*, the <code>@Query</code> annotation is used to define a *custom JPQL query* for finding a student by email. **JPQL (Java Persistence Query Language)** is an object-oriented query language used to *interact with JPA entities*. It allows for more flexible and complex queries than the default methods provided by Spring Data JPA, such as finding entities by specific properties.
 
-### Adding DELETE Request to my API
+### Adding DELETE Request
 - <code>@DeleteMapping</code>: An annotation used to handle HTTP DELETE requests in the controller. The path attribute specifies the URL pattern for the endpoint, and <code>{studentId}</code> is a *placeholder* for the student's ID.
 - <code>@PathVariable</code>: An annotation used to bind a method parameter to a URI template variable. In this case, <code>@PathVariable("studentId")</code> extracts the student ID from the URI path and maps it to the studentId parameter of the deleteStudent method.
+
+### Adding PUT Request
+- <code>@Transactional</code>: This annotation is used at the *service layer* to define the scope of the transaction. It ensures that the **entire method executes within a single transactional context**. If any part of the method fails (e.g., due to an exception), the *transaction is rolled back*, and any changes made within the method are reverted, maintaining data consistency and integrity.
+- <code>@RequestParam</code>: This annotation is used in the *controller* to extract request parameters from the URL query string or form data.
